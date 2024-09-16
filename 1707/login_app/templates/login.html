@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} Авторизація {% endblock %}
+{% block content %}
+<form action="" method="post">
+    <input type="text" placeholder="Введіть ім'я користувача" name="login">
+    <input type="password" placeholder="Введіть пароль" name="password">
+    <button>Авторизуватись</button>
+</form>
+<a href="/register">В мене немає аккаунту</a>
+{% endblock %}

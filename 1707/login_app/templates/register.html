@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} Реєстрація {% endblock %}
+{% block content %}
+<form action="" method="post">
+    <input type="text" placeholder="Придумайте ім'я користувача" name="login">
+    <input type="password" placeholder="Придумайте пароль" name="password">
+    <input type="password" placeholder="Повторіть пароль" name="confirm_password">
+    <button>Зареєструватись</button>
+</form>
+<a href="/">В мене вже є аккаунт</a>
+{% endblock %}

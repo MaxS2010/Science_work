@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+
+{% block title %} Чат {% endblock %}
+
+{% block content %}
+<h2>Ви: {{username}}</h2>
+<input type="hidden" name="" class="username_value" value="{{username}}">
+<div class="main_container">
+    {% for message in chat_data %}
+        {% if username == message.user %}
+            <div class="message right_side">
+                <div class="user">
+                    <img class="user_image" src="{{ url_for('chat.static', filename='images/user.png') }}" alt="">
+                    <p class="username">{{message.user}}:</p>
+                </div>
+                <p class="text">{{message.text}}</p>
+            </div>
+        {% else %}
+            <div class="message">
+                <div class="user">
+                    <img class="user_image" src="{{ url_for('chat.static', filename='images/user.png') }}" alt="">
+                    <p class="username">{{message.user}}:</p>
+                </div>
+                <p class="text">{{message.text}}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+<div class="message_field">
+    <textarea class="message_text"></textarea>
+    <button class="send_message">Надіслати</button>
+</div>
+<script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+<script src="{{ url_for('chat.static', filename='js/chat.js') }}"></script>
+{% endblock %}
